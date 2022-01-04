@@ -1,0 +1,385 @@
+<html lang=&quot;en&quot; >
+
+<head>
+
+  <meta charset=&quot;UTF-8&quot;>
+  
+<link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+<meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+<link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+<link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg&quot; color=&quot;#111&quot; />
+
+
+  <meta name=&quot;robots&quot; content=&quot;noindex&quot;>
+  <title>CodePen - DFAS</title>
+  
+  <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css&quot;>
+
+  
+  
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.color-secondary {
+  color: #6d9eb3;
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+html, body {
+  font-family: &quot;Inter&quot;, sans-serif;
+  letter-spacing: 0.015em;
+}
+
+a {
+  color: #93c375;
+}
+
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 1200px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.grid {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.intro {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  margin: 30px 0;
+}
+.intro--image {
+  grid-row: 1;
+  grid-column: 1/4;
+  object-fit: cover;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+  display: none;
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+  .intro--image {
+    display: block;
+  }
+}
+.intro--text {
+  position: relative;
+  grid-column: 1/7;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 600px) {
+  .intro--text {
+    padding-left: 30px;
+    grid-column: 4/7;
+  }
+}
+.intro--spacer {
+  grid-column: 1/4;
+  grid-row: 1;
+}
+
+.top-section {
+  position: relative;
+  background: #121213;
+  padding: 30px 0;
+  overflow: hidden;
+}
+.top-section header {
+  position: relative;
+}
+.top-section--shape {
+  grid-column-start: 1;
+  position: relative;
+  left: -60px;
+  z-index: 0;
+}
+@media (min-width: 600px) {
+  .top-section--shape {
+    left: 0;
+    grid-column-start: 3;
+  }
+}
+.top-section--shape:after {
+  content: &quot;&quot;;
+  display: block;
+  background: #1f364b;
+  border-bottom-left-radius: 20px;
+  position: absolute;
+  width: 300vw;
+  height: 300vh;
+  bottom: 0;
+}
+
+.aspect:after {
+  content: &quot;&quot;;
+  display: block;
+}
+
+.aspect-portrait:after {
+  padding-bottom: 160%;
+}
+
+.description {
+  background: #121213;
+  color: #fff;
+  overflow: hidden;
+  padding: 60px 0;
+}
+.description--column {
+  grid-column: 1/7;
+}
+@media (min-width: 600px) {
+  .description--column {
+    grid-column: 2/6;
+  }
+}
+
+.tfe {
+  padding: 60px 0;
+  background: #121213;
+}
+.tfe .grid {
+  box-shadow: 0 20px 40px -30px rgba(109, 158, 179, 0.5);
+  background: #1f364b;
+  border-radius: 10px;
+}
+.tfe--logo {
+  grid-column: 1/7;
+  padding: 30px 0 0;
+}
+@media (min-width: 600px) {
+  .tfe--logo {
+    grid-column: 1/3;
+  }
+}
+@media (min-width: 600px) {
+  .tfe--logo {
+    padding: 60px 0;
+  }
+}
+.tfe--logo svg {
+  width: auto;
+  max-width: 120px;
+  display: block;
+}
+@media (min-width: 600px) {
+  .tfe--logo svg {
+    margin: auto;
+    width: 100%;
+  }
+}
+.tfe--text {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 30px 0 0;
+  grid-column: 1/7;
+}
+@media (min-width: 600px) {
+  .tfe--text {
+    grid-column: 3/7;
+  }
+}
+
+.past-work {
+  background: #121213;
+  color: #fff;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+.past-work--item {
+  grid-column: span 6;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #1f364b;
+  padding: 15px 20px;
+  box-shadow: 0 20px 40px -30px rgba(109, 158, 179, 0.4);
+}
+@media (min-width: 600px) {
+  .past-work--item {
+    grid-column: span 3;
+  }
+}
+.past-work--item *:first-child {
+  margin-top: 0;
+}
+.past-work--item *:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 16px;
+  color: #6d9eb3;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js&quot;></script>
+
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage(&quot;resize&quot;, &quot;*&quot;);
+  }
+</script>
+
+
+</head>
+
+<body translate=&quot;no&quot; >
+  <link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;>
+<link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin>
+<link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+
+<div class=&quot;top-section&quot;>
+  <!--   <header>
+    <div class=&quot;container&quot;>
+      <a href=&quot;#&quot;>David Field Advisory Services</a>
+    </div>
+  </header> -->
+
+  <div class=&quot;intro&quot;>
+    <div class=&quot;container grid&quot;>
+      <img src=&quot;https://assets.codepen.io/5961/David-Field.jpg&quot; alt=&quot;&quot; class=&quot;intro--image&quot;>
+      <div class=&quot;intro--text&quot;>
+        <h1>David Field<br /><span class=&quot;color-secondary&quot;>
+            Advisory Services</span>
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
+  <div class=&quot;container&quot;>
+    <div class=&quot;grid&quot;>
+      <div class=&quot;top-section--shape&quot;></div>
+    </div>
+  </div>
+</div>
+
+<div class=&quot;description&quot;>
+  <div class=&quot;container grid&quot;>
+    <div class=&quot;description--column&quot;>
+
+      <h2 class=&quot;label&quot;>About David</h2>
+      
+      <p>David provides advisory services to the charity and commercial sectors, sharing his commercial experience through long term and project-based non-executive partnership. David brings a strong commercial focus on revenue generation, profitability and cashflow, combined with expert consulting skills in business process design and technology implementation.</p>
+
+      <p>His commercial experience was developed through 30 years in capital markets, advising investment banks and asset managers on their business operating models. He was Head of Wholesale Banking at TCA Consulting and Managing Director at Rule Financial before founding his own firm, The Field Effect, which he successfully sold in 2019.</p>
+
+      <p>His charity experience includes advising the board of a charity in Kent, where as trustee he helped develop the fundraising strategy. He has mentored senior managers of two other charities and has founded a local nature recovery network.</p>
+
+      <p>You can contact David at <a href=&quot;mailto:david.field@thefieldeffect.co.uk&quot;>david.field@thefieldeffect.co.uk</a></p>
+    </div>
+  </div>
+</div>
+
+<div class=&quot;tfe&quot;>
+  <div class=&quot;container&quot;>
+    <div class=&quot;grid&quot;>
+      <div class=&quot;tfe--logo&quot;>
+        <svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 200 200&quot; enable-background=&quot;new 0 0 200 200&quot; xml:space=&quot;preserve&quot;>
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;110.7,99 94.3,99 94.3,104.6 105.2,104.6 	&quot; />
+          </g>
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;141.7,99 125.9,99 125.9,104.6 136.2,104.6 	&quot; />
+          </g>
+          <path fill=&quot;#8FC584&quot; d=&quot;M100.5,1.7c-54.1,0-98.2,44-98.2,98.2c0,54.1,44,98.2,98.2,98.2c54.1,0,98.2-44,98.2-98.2
+	C198.7,45.7,154.6,1.7,100.5,1.7z M190.4,99.9c0,49.6-40.3,89.9-89.9,89.9c-49.6,0-89.9-40.3-89.9-89.9c0-49.6,40.3-89.9,89.9-89.9
+	C150.1,9.9,190.4,50.3,190.4,99.9z&quot; />
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;42.9,86.5 73.4,86.5 79,80.9 42.9,80.9 	&quot; />
+          </g>
+          <g>
+            <rect x=&quot;56.9&quot; y=&quot;90.3&quot; fill=&quot;#706F6F&quot; width=&quot;5.5&quot; height=&quot;32.1&quot; />
+          </g>
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;84.9,122.4 90.4,122.4 90.4,86.5 114,86.5 119.6,80.9 84.9,80.9 	&quot; />
+          </g>
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;125.7,86.5 154.5,86.5 160,80.9 125.7,80.9 	&quot; />
+          </g>
+          <g>
+            <polygon fill=&quot;#706F6F&quot; points=&quot;125.7,122.4 154.6,122.4 159.8,116.8 125.7,116.8 	&quot; />
+          </g>
+        </svg>
+      </div>
+      <div class=&quot;tfe--text&quot;>
+        <div>
+          <h3>The Field Effect</h3>
+        <p>David founded The Field Effect in 2015. TFE was an independent financial services change management consultancy. TFE was acquired by Delta Capita in 2019.</p>
+        <p>
+          <a target=&quot;_blank&quot; href=&quot;https://thefieldeffect.co.uk&quot;>Visit the website &amp;#x2197;</a>
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=&quot;past-work&quot;>
+  <div class=&quot;container&quot;>
+    <h2 class=&quot;label&quot;>Past work</h2>
+    </div>
+    <div class=&quot;container grid&quot;>
+      <div class=&quot;past-work--item&quot;>
+        <h3>Delta Capita</h3>
+        <p>Delta Capita, a division of Prytek, is a leading global managed services, technology solutions and consulting services provider. After completion of the sale of TFE to Delta Capita David advised DC on potential acquisitions and regulatory propositions.</p>
+        <p>
+          <a href=&quot;https://deltacapita.com/&quot; target=&quot;_blank&quot;>deltacapita.com &amp;#x2197;</a>
+        </p>
+      </div>
+      <div class=&quot;past-work--item&quot;>
+        <h3>Nature Recovery Network</h3>
+        <p>In 2020 David co-founded Nature Recovery Network, an informal group of local people who meet to share ideas, information and enthusiasm for nature recovery.  Its first practical project is installation of 25 barn owl nesting boxes south of Bewl Water in Sussex.
+</p>
+        <p>
+          <a href=&quot;https://wildwadhurst.wordpress.com/wild-wadhurst-connections/ &quot; target=&quot;_blank&quot;>Wild Wadhurst &amp;#x2197;</a>
+        </p>
+      </div>
+      <div class=&quot;past-work--item&quot;>
+        <h3>Communigrow</h3>
+        <p>David joined the board of Communigrow as a trustee in June 2021.  He developed a 5-year fundraising strategy which he is now helping to implement.
+</p>
+      </div>
+      <div class=&quot;past-work--item&quot;>
+        <h3>Private equity</h3>
+        <p>David was engaged to advise a major private equity firm on a potential acquisition target, through analysis of its growth opportunities, competition and exit potential.</p>
+      </div>
+      <div class=&quot;past-work--item&quot;>
+        <h3>Margin Reform</h3>
+        <p>David is a non-executive advisor to the board of Margin Reform, an independent consultancy. Margin Reform helps clients operating in the financial sector to provide strategy, insight and delivery across derivatives, repo and securities lending for the margin, collateral and legal domains.
+https://www.marginreform.com/ </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+
+</body>
+
+</html>
